@@ -76,7 +76,7 @@ app.post('/post', uploadMiddleware.single('file'), async (req, res) => {
   const newPath = path + '.' + ext;
   fs.renameSync(path, newPath);
 
-  const token = req.cookies.token;
+  const { token } = req.cookies.token;
   // const { username, password } = req.body;
   // const passOk = bcrypt.compareSync(password, userDoc.password);
 
