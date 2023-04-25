@@ -38,6 +38,7 @@ app.post('/register', async (req, res) => {
     res.json(userDoc);
   } catch (e) {
     res.status(404).json(e);
+    console.log(e);
   }
 });
 
@@ -89,7 +90,7 @@ app.post('/post', uploadMiddleware.single('file'), async (req, res) => {
       cover: newPath,
       author: info.id,
     });
-    res.json(postDoc);
+    // res.json(postDoc);
   });
 });
 
