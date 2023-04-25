@@ -77,6 +77,9 @@ app.post('/post', uploadMiddleware.single('file'), async (req, res) => {
   fs.renameSync(path, newPath);
 
   // const token = req.cookies.token;
+  const { username, password } = req.body;
+  const passOk = bcrypt.compareSync(password, userDoc.password);
+
   jwt.sign({ username, id: userDoc._id }, secret, {}, (err, token) => {
     if (err) throw err;
     res.cookie('token', token).json({
