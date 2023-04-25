@@ -80,7 +80,7 @@ app.post('/post', uploadMiddleware.single('file'), async (req, res) => {
   const newPath = path + '.' + ext;
   fs.renameSync(path, newPath);
 
-  const token = JSON.parse(JSON.stringify(req.cookies));
+  const token = req.cookies.token;
   console.log(token);
   // jwt.sign({ username, id: userDoc._id }, secret, {}, (err, token) => {
   //   if (err) throw err;
