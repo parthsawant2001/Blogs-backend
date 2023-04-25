@@ -14,9 +14,7 @@ const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const fs = require('fs');
 
-app.use(
-  cors({ credentials: true, origin: 'https://blogs-i52i.onrender.com/' })
-);
+app.use(cors({ credentials: true, origin: 'https://blogs-i52i.onrender.com' }));
 app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'));
